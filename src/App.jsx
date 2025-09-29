@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import WhyChooseUs from './components/Whychooseus';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 function App() {
 
   // Smooth scrolling behavior
@@ -19,7 +20,7 @@ function App() {
    <>
   <Header />
   <Hero />
-  <main className="max-w-7xl mx-auto px-6 py-20 scroll-smooth">
+  <main className="max-w-7xl mx-auto scroll-smooth">
     {/* Sections with IDs */}
     <section id="about">
       <Aboutus />
@@ -40,11 +41,12 @@ function App() {
     <section id="portfolio">
       <Portfolio />
     </section>
-
     <section id="contact">
       <Contact />
     </section>
+    
   </main>
+  <Footer />
 </>
 
   )
