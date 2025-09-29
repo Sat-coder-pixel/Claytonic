@@ -38,12 +38,12 @@ function App() {
       <WhyChooseUs />
     </section>
 
-    <section id="portfolio">
-      <Portfolio />
+    <section id="testimonials">
+      <Testimonials />
     </section>
-    <section id="contact">
+    {/* <section id="contact">
       <Contact />
-    </section>
+    </section> */}
     
   </main>
   <Footer />

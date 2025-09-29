@@ -1,25 +1,171 @@
-import React from 'react'
+import { useState } from "react";
 import { motion } from "framer-motion";
+
 export default function Footer() {
+  const [showPopup, setShowPopup] = useState(false);
+const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+   const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Simulate API call
+    console.log("Form submitted:", formData);
+
+    // Show popup
+    setShowPopup(true);
+
+    // Clear fields
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+
+    // Hide popup after 3s
+    setTimeout(() => setShowPopup(false), 3000);
+  };
+
   return (
-    <div>
-      <motion.footer
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="bg-gray-900 text-gray-300 py-8 mt-16"
-      >
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-          <p>© {new Date().getFullYear()} Builder Company. All rights reserved.</p>
-          <div className="flex space-x-6">
-            <a href="#about" className="hover:text-white">About</a>
-            <a href="#portfolio" className="hover:text-white">Projects</a>
-            <a href="#services" className="hover:text-white">Services</a>
-            <a href="#contact" className="hover:text-white">Contact</a>
+    <footer className="bg-gray-900 text-gray-300 pt-16 relative">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+        
+        {/* Contact Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="bg-gray-800 p-8 rounded-2xl shadow-lg"
+        >
+          <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
+          <form className="space-y-4" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="w-full border border-gray-600 bg-gray-700 text-gray-200 rounded-lg px-4 py-2.5"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full border border-gray-600 bg-gray-700 text-gray-200 rounded-lg px-4 py-2.5"
+          required
+        />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Your Phone"
+          value={formData.phone}
+          onChange={handleChange}
+          className="w-full border border-gray-600 bg-gray-700 text-gray-200 rounded-lg px-4 py-2.5"
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          rows="3"
+          value={formData.message}
+          onChange={handleChange}
+          className="w-full border border-gray-600 bg-gray-700 text-gray-200 rounded-lg px-4 py-2.5"
+          required
+        />
+        <button
+          type="submit"
+          className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2.5 rounded-lg font-semibold shadow-md hover:from-indigo-700 hover:to-purple-700 transition-all duration-300"
+        >
+          Send Message
+        </button>
+      </form>
+        </motion.div>
+
+        {/* Office Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="space-y-4"
+        >
+          <h2 className="text-2xl font-bold text-white">Our Office</h2>
+          <p className="text-gray-400">123 Builder Street, New Delhi, India</p>
+          <p><strong>Phone:</strong> +91 9876543210</p>
+          <p><strong>Email:</strong> info@builder.com</p>
+
+          {/* Social Icons */}
+          <div className="flex space-x-4 text-2xl">
+            <a href="#" className="hover:text-indigo-500 transition">🌐</a>
+            <a href="#" className="hover:text-indigo-500 transition">🔗</a>
+            <a href="#" className="hover:text-indigo-500 transition">📸</a>
           </div>
-        </div>
-      </motion.footer>
-    </div>
-  )
+
+          {/* Map */}
+          <div className="h-48 rounded-xl overflow-hidden shadow-lg border border-gray-700">
+            <iframe
+              title="Office Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.62533660151!2d151.20711461520847!3d-33.86881998065302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae5d5f3f0c0b%3A0x5017d681632cc40!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2sin!4v1696000000000!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </motion.div>
+
+        {/* Quick Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="space-y-4"
+        >
+          <h2 className="text-2xl font-bold text-white">Quick Links</h2>
+          <ul className="space-y-2">
+            <li><a href="#about" className="hover:text-indigo-500">About Us</a></li>
+            <li><a href="#portfolio" className="hover:text-indigo-500">Projects</a></li>
+            <li><a href="#services" className="hover:text-indigo-500">Services</a></li>
+            <li><a href="#contact" className="hover:text-indigo-500">Contact</a></li>
+          </ul>
+        </motion.div>
+      </div>
+
+      {/* Bottom Strip */}
+      <div className="mt-12 border-t border-gray-700 py-6 text-center text-sm text-gray-400">
+        © {new Date().getFullYear()} Builder Company. All rights reserved.
+      </div>
+
+      {/* Popup Notification */}
+      {showPopup && (
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          className="fixed bottom-6 right-6 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg"
+        >
+          ✅ Message sent! We’ll get back to you soon.
+        </motion.div>
+      )}
+    </footer>
+  );
 }
