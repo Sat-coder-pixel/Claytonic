@@ -108,7 +108,7 @@ const [formData, setFormData] = useState({
           <h2 className="text-2xl font-bold text-white">Our Office</h2>
           <p className="text-gray-400">123 Builder Street, New Delhi, India</p>
           <p><strong>Phone:</strong> +91 9876543210</p>
-          <p><strong>Email:</strong> info@builder.com</p>
+          <p><strong>Email:</strong> satkaushik131.com</p>
 
           {/* Social Icons */}
           <div className="flex space-x-4 text-2xl">
