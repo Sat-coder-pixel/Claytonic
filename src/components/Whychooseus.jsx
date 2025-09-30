@@ -26,7 +26,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why" className="relative py-20 bg-white overflow-hidden">
+    <section id="why" className="relative py-20 bg-gradient-to-r from-blue-50 via-white to-indigo-50 overflow-hidden">
       <div className="absolute left-0 top-0 w-72 h-72 bg-gradient-to-br from-sky-100 to-indigo-50 rounded-full opacity-30 blur-3xl pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 text-center relative">
         <motion.h2

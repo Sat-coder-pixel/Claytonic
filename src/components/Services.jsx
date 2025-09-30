@@ -30,7 +30,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="relative py-24 px-6 bg-white overflow-hidden">
+    <section className="relative py-24 px-6 bg-gradient-to-r from-blue-50 via-white to-indigo-50 overflow-hidden">
       {/* Decorative shapes */}
       <div className="absolute -left-40 -top-20 w-96 h-96 bg-gradient-to-tr from-amber-100 to-amber-50 rounded-full opacity-30 blur-3xl pointer-events-none" />
       <div className="absolute right-0 top-40 w-80 h-80 bg-gradient-to-br from-sky-100 to-indigo-50 rounded-full opacity-30 blur-2xl pointer-events-none" />
