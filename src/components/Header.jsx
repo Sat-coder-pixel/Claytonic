@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from 'react-router-dom'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -18,6 +20,16 @@ export default function Header() {
     { name: "Services", href: "#services" },
     { name: "Contact", href: "#contact" },
   ]
+  
+  const goToHash = (hash) => {
+    // If already on home, just set location.hash so RouterWrapper handles it
+    if (window.location.pathname === '/') {
+      window.location.hash = hash ? `#${hash}` : '#'
+      return
+    }
+    // navigate to home with the hash
+    navigate('/#' + (hash || ''))
+  }
 
   return (
     <header
@@ -44,17 +56,17 @@ export default function Header() {
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6">
           {links.map((l) => (
-            <a
-  key={l.name}
-  href={l.href}
-  className="relative px-4 py-2 rounded-full text-slate-700 font-medium transition-all duration-300
-  hover:bg-gradient-to-r hover:from-slate-500 hover:to-slate-700 hover:text-slate-100
-  group"
->
-  {l.name}
-  {/* underline animation */}
-  <span className="absolute left-1/2 -bottom-1 h-0.5 w-0 bg-slate-300 transition-all duration-300 group-hover:w-3/4 group-hover:left-1/4"></span>
-</a>
+            <button
+              key={l.name}
+              onClick={() => goToHash(l.href.replace('#',''))}
+              className="relative px-4 py-2 rounded-full text-slate-700 font-medium transition-all duration-300
+              hover:bg-gradient-to-r hover:from-slate-500 hover:to-slate-700 hover:text-slate-100
+              group"
+            >
+              {l.name}
+              {/* underline animation */}
+              <span className="absolute left-1/2 -bottom-1 h-0.5 w-0 bg-slate-300 transition-all duration-300 group-hover:w-3/4 group-hover:left-1/4"></span>
+            </button>
 
           ))}
         </div>
@@ -126,25 +138,23 @@ export default function Header() {
 
           <nav className="flex flex-col gap-4">
             {links.map((l) => (
-              <a
+              <button
                 key={l.name}
-                href={l.href}
-                onClick={() => setOpen(false)}
+                onClick={() => { setOpen(false); goToHash(l.href.replace('#','')) }}
                 className="px-3 py-2 rounded-md text-slate-700 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-orange-400 hover:text-white transition"
               >
                 {l.name}
-              </a>
+              </button>
             ))}
           </nav>
 
           <div className="mt-6">
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
+            <button
+              onClick={() => { setOpen(false); goToHash('contact') }}
               className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-orange-500 text-white font-medium shadow hover:shadow-lg transition"
             >
               Get a Quote
-            </a>
+            </button>
           </div>
         </div>
       </div>

@@ -2,14 +2,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from 'react-router-dom'
 import projects from '../data/projects'
-import ProgressiveImage from './ProgressiveImage'
-
-// const projectd = [
-//   { id: 1, img: project1, title: "Luxury Villa", location: "Bangalore", desc: "Spacious modern villa with eco-friendly design." },
-//   { id: 2, img: project2, title: "Urban Apartments", location: "Hyderabad", desc: "Premium apartments designed for city living." },
-//   { id: 3, img: project3, title: "Coastal Retreat", location: "Goa", desc: "Beachfront homes with stunning sea views." },
-//   { id: 4, img: project4, title: "Hilltop Cottage", location: "Shimla", desc: "Cozy cottages with breathtaking mountain views." },
-// ];
 
 export default function Portfolio() {
   const [showAll, setShowAll] = useState(false);
@@ -50,9 +42,14 @@ export default function Portfolio() {
                   className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer transform transition-all duration-300"
                 >
                   <div className="overflow-hidden">
-                      <motion.div className="w-full h-56 will-change-transform overflow-hidden">
-                        <ProgressiveImage src={project.img} alt={project.title} className="w-full h-56" />
-                      </motion.div>
+                      <motion.img
+                        src={project.img}
+                        alt={project.title}
+                        loading="lazy"
+                        className="w-full h-56 object-cover will-change-transform"
+                        whileHover={{ scale: 1.08 }}
+                        transition={{ duration: 0.45 }}
+                      />
                     </div>
                   <div className="p-6 text-left">
                     <h3 className="text-xl font-semibold">{project.title}</h3>

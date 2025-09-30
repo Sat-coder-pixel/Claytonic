@@ -60,45 +60,37 @@ function App() {
     const navigate = useNavigate();
 
     // Scroll to hash target when hash changes or when route changes
-    useEffect(() => {
-      const scrollToHash = (hash) => {
-        if (!hash) return;
-        const id = hash.replace('#', '');
-        const el = document.getElementById(id);
-        if (el) {
-          // use smooth scrolling explicitly
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          return true;
-        }
-        return false;
-      }
+useEffect(() => {
+  const scrollToHash = (hash) => {
+    if (!hash) return false;
+    const el = document.querySelector(hash);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      return true;
+    }
+    return false;
+  };
 
-      // If there's a hash on navigation, try to scroll to it. If the element
-      // isn't present (e.g. we're on a detail page), navigate to home first
-      // then retry shortly after mount.
-      if (location.hash) {
+  if (location.pathname === "/") {
+    if (location.hash) {
+      let attempts = 0;
+      const tryScroll = () => {
         const found = scrollToHash(location.hash);
-        if (!found && location.pathname !== '/') {
-          // navigate to home then attempt scroll after a short delay
-          navigate('/');
-          setTimeout(() => scrollToHash(location.hash), 120);
+        if (!found && attempts < 10) {
+          attempts++;
+          setTimeout(tryScroll, 150); // retry every 150ms until found or 10 tries
         }
-      }
+      };
+      tryScroll();
+    } else {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  } else {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+}, [location]);
 
-      // also handle manual hashchange events
-      const onHash = () => {
-        if (window.location.hash) {
-          const ok = scrollToHash(window.location.hash);
-          if (!ok && window.location.pathname !== '/') {
-            navigate('/');
-            setTimeout(() => scrollToHash(window.location.hash), 120);
-          }
-        }
-      }
 
-      window.addEventListener('hashchange', onHash);
-      return () => window.removeEventListener('hashchange', onHash);
-    }, [location, navigate]);
 
     return (
       <AnimatePresence mode="wait">

@@ -47,7 +47,13 @@ export default function ProjectDetail() {
 
         <motion.div layout className="relative bg-white rounded-3xl overflow-hidden shadow-2xl">
           {/* Back button - navigate to portfolio anchor so we return to the portfolio section */}
-          <button onClick={() => navigate('/#portfolio')} aria-label="Go back to portfolio" className="fixed left-4 top-4 z-50 inline-flex items-center gap-3 bg-white/95 text-slate-800 px-4 py-2 rounded-md shadow-md text-base font-medium hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400">
+          <button onClick={() => {
+  navigate('/#portfolio');
+  setTimeout(() => {
+    document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+  }, 400); // delay so home mounts
+}}
+ aria-label="Go back to portfolio" className="fixed left-4 top-4 z-50 inline-flex items-center gap-3 bg-white/95 text-slate-800 px-4 py-2 rounded-md shadow-md text-base font-medium hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400">
             <span className="text-2xl leading-none">←</span>
             <span>Back</span>
           </button>
