@@ -97,7 +97,8 @@ export default function Aboutus() {
                 key={idx}
                 src={HomeImage}
                 alt="showcase"
-                className="w-[400px] h-full object-cover rounded-lg mx-2"
+                loading="lazy"
+                className="w-[400px] h-full object-cover rounded-lg mx-2 will-change-transform"
               />
             ))}
           </motion.div>

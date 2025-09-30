@@ -54,7 +54,7 @@ const projects = [
     year: 2024,
     area: '3000 sqft',
     cost: '₹2.5 Cr',
-    desc: 'Beachfront homes with large terraces offering panoramic sea views and natural ventilation.',
+    desc: 'Beachfront homes with large terraces offering panoramic sea views and natural ventilation.Happy Home.',
     features: ['Sea View', 'Outdoor Deck', 'Natural Ventilation'],
     stats: [
       { label: 'Built Area (sqft)', value: 3000 },

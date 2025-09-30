@@ -18,3 +18,18 @@ video { display: block; }
 :root { scroll-behavior: smooth; }
 
 /* You can add additional custom classes here if needed */
+
+/* Performance helpers: prefer transform/opacity-only animations and hint the browser */
+.will-change-transform {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Respect the user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

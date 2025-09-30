@@ -58,10 +58,11 @@ export default function Testimonials() {
                   zIndex: offset === 0 ? 10 : 5,
                 }}
                 transition={{ duration: 0.6 }}
-                className="absolute bg-white shadow-xl rounded-xl p-8 max-w-md border"
+                className="absolute bg-white shadow-xl rounded-xl p-8 max-w-md border will-change-transform"
               >
                 <img
                   src={t.photo}
+                  loading="lazy"
                   alt={t.name}
                   className="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-blue-500"
                 />

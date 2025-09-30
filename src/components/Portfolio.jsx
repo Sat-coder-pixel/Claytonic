@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from 'react-router-dom'
 import projects from '../data/projects'
+import ProgressiveImage from './ProgressiveImage'
 
 // const projectd = [
 //   { id: 1, img: project1, title: "Luxury Villa", location: "Bangalore", desc: "Spacious modern villa with eco-friendly design." },
@@ -49,14 +50,10 @@ export default function Portfolio() {
                   className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer transform transition-all duration-300"
                 >
                   <div className="overflow-hidden">
-                    <motion.img
-                      src={project.img}
-                      alt={project.title}
-                      className="w-full h-56 object-cover"
-                      whileHover={{ scale: 1.12 }}
-                      transition={{ duration: 0.5 }}
-                    />
-                  </div>
+                      <motion.div className="w-full h-56 will-change-transform overflow-hidden">
+                        <ProgressiveImage src={project.img} alt={project.title} className="w-full h-56" />
+                      </motion.div>
+                    </div>
                   <div className="p-6 text-left">
                     <h3 className="text-xl font-semibold">{project.title}</h3>
                     <p className="text-sm text-blue-500">{project.location}</p>
