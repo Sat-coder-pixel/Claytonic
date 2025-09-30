@@ -59,6 +59,21 @@ function App() {
     const location = useLocation();
     const navigate = useNavigate();
 
+    // Disable automatic browser scroll restoration so we control scroll behavior
+    useEffect(() => {
+      if ('scrollRestoration' in window.history) {
+        const prev = window.history.scrollRestoration
+        try {
+          window.history.scrollRestoration = 'manual'
+        } catch (e) {}
+        return () => {
+          try {
+            window.history.scrollRestoration = prev || 'auto'
+          } catch (e) {}
+        }
+      }
+    }, [])
+
     // Scroll to hash target when hash changes or when route changes
 useEffect(() => {
   const scrollToHash = (hash) => {
@@ -71,23 +86,25 @@ useEffect(() => {
     return false;
   };
 
-  if (location.pathname === "/") {
-    if (location.hash) {
-      let attempts = 0;
-      const tryScroll = () => {
-        const found = scrollToHash(location.hash);
-        if (!found && attempts < 10) {
-          attempts++;
-          setTimeout(tryScroll, 150); // retry every 150ms until found or 10 tries
+      if (location.pathname === "/") {
+        // Immediately reset to top to avoid browser restoring a previous scroll position
+        window.scrollTo({ top: 0, behavior: 'auto' });
+
+        if (location.hash) {
+          let attempts = 0;
+          const tryScroll = () => {
+            const found = scrollToHash(location.hash);
+            if (!found && attempts < 10) {
+              attempts++;
+              setTimeout(tryScroll, 150); // retry every 150ms until found or 10 tries
+            }
+          };
+          tryScroll();
         }
-      };
-      tryScroll();
-    } else {
-      window.scrollTo({ top: 0, behavior: "auto" });
-    }
-  } else {
-    window.scrollTo({ top: 0, behavior: "auto" });
-  }
+      } else {
+        // non-home routes always start at top
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }
 }, [location]);
 
 
