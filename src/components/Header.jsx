@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate,Link } from 'react-router-dom'
+import Logo from '../assets/Logo.jpg'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -49,13 +50,10 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
-  <Link
-        to="/"
-        onClick={handleClick}
-        className={`${scrolled || open ? 'text-2xl font-extrabold bg-gradient-to-r from-slate-600 via-gray-700 to-slate-900 bg-clip-text text-transparent inline-block' : 'text-2xl font-extrabold text-white inline-block'}`}
-      >
-        Claytonic
-      </Link>
+  <Link to="/" onClick={handleClick} className="inline-flex items-center gap-3">
+    <img src={Logo} alt="HomeBuilder logo" className="h-8 md:h-10 w-auto rounded-sm" />
+    <span className={`${scrolled || open ? 'hidden md:inline-block text-2xl font-extrabold bg-gradient-to-r from-slate-600 via-gray-700 to-slate-900 bg-clip-text text-transparent' : 'hidden md:inline-block text-2xl font-extrabold text-white'}`}>Claytonic</span>
+  </Link>
   {/* <span className="hidden md:inline-block text-sm text-slate-600">
     Modern homes &amp; trusted construction
   </span> */}
@@ -121,7 +119,7 @@ export default function Header() {
         href="#"
         className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-orange-500 bg-clip-text "
       >
-        HomeBuilder
+        Claytonic
       </a>
       <button
         aria-label="Close"

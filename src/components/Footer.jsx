@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-
+import emailjs from 'emailjs-com';  // 🔹 import EmailJS
 export default function Footer() {
   const [showPopup, setShowPopup] = useState(false);
 const [formData, setFormData] = useState({
@@ -20,24 +20,31 @@ const [formData, setFormData] = useState({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simulate API call
-    console.log("Form submitted:", formData);
-
-    // Show popup
-    setShowPopup(true);
-
-    // Clear fields
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-
-    // Hide popup after 3s
-    setTimeout(() => setShowPopup(false), 3000);
+    // Send email using EmailJS
+    emailjs
+      .send(
+        "service_8i3kwc5",   // 🔹 replace with Service ID
+        "template_qt6yecp",  // 🔹 replace with Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        "hlEHntgBDb22A2JyW"    // 🔹 replace with Public Key
+      )
+      .then(
+        () => {
+          setShowPopup(true);
+          setFormData({ name: "", email: "", phone: "", message: "" });
+          setTimeout(() => setShowPopup(false), 3000);
+        },
+        (error) => {
+          console.error("Email send failed:", error);
+          alert("Failed to send message. Try again later.");
+        }
+      );
   };
-
   return (
     <footer className="bg-gray-900 text-gray-300 pt-16 relative">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
@@ -106,9 +113,9 @@ const [formData, setFormData] = useState({
           className="space-y-4"
         >
           <h2 className="text-2xl font-bold text-white">Our Office</h2>
-          <p className="text-gray-400">123 Builder Street, New Delhi, India</p>
+          <p className="text-gray-400">49 Mountain Street, The Ponds, New South Wales 2769, Australia </p>
           <p><strong>Phone:</strong> +91 9876543210</p>
-          <p><strong>Email:</strong> satkaushik131.com</p>
+          <p><strong>Email:</strong> info.claytonic@gmail.com</p>
 
           {/* Social Icons */}
           <div className="flex space-x-4 text-2xl">
@@ -121,7 +128,7 @@ const [formData, setFormData] = useState({
           <div className="h-48 rounded-xl overflow-hidden shadow-lg border border-gray-700">
             <iframe
               title="Office Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.62533660151!2d151.20711461520847!3d-33.86881998065302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae5d5f3f0c0b%3A0x5017d681632cc40!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2sin!4v1696000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.0206641823424!2d150.8962675!3d-33.7084142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129edd365b5a17%3A0x5b7edd0fcf9ebb69!2s49%20Mountain%20St%2C%20The%20Ponds%20NSW%202769%2C%20Australia!5e0!3m2!1sen!2sin!4v1759315240171!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}

@@ -3,19 +3,19 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Ravi Sharma",
-    text: "Our dream home was built exactly as we imagined. Professional and trustworthy team!",
-    photo: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Michael Harris",
+    text: "The team delivered excellent workmanship and the finish is outstanding. Very happy with our new home.",
+    photo: "https://randomuser.me/api/portraits/men/65.jpg",
   },
   {
-    name: "Anita Verma",
-    text: "Amazing designs and timely delivery. They truly care about customer satisfaction.",
-    photo: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Olivia Brown",
+    text: "Great communication and timely completion. We love the attention to detail.",
+    photo: "https://randomuser.me/api/portraits/women/65.jpg",
   },
   {
-    name: "Sandeep Yadav",
-    text: "From planning to execution, everything was smooth. Highly recommend!",
-    photo: "https://randomuser.me/api/portraits/men/76.jpg",
+    name: "Ethan Williams",
+    text: "Professional, efficient and respectful on site. Highly recommended.",
+    photo: "https://randomuser.me/api/portraits/men/12.jpg",
   },
 ];
 

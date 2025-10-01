@@ -133,7 +133,18 @@ export default function ProjectDetail() {
                 </div>
 
                 <div className="mt-6">
-                  <button className="w-full bg-amber-400 text-slate-900 py-2 rounded-full font-semibold hover:scale-105 transform transition">Request Brochure</button>
+                  <button
+                    onClick={() => {
+                      // Navigate to home and scroll to contact anchor (works whether we're on home or detail)
+                      navigate('/#contact');
+                      setTimeout(() => {
+                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 350);
+                    }}
+                    className="w-full bg-amber-400 text-slate-900 py-2 rounded-full font-semibold hover:scale-105 transform transition"
+                  >
+                    Get a Quote
+                  </button>
                 </div>
               </div>
 

@@ -6,12 +6,11 @@ const images = [
   "https://source.unsplash.com/800x600/?house,modern",
   "https://source.unsplash.com/800x600/?construction,building",
   "https://source.unsplash.com/800x600/?architecture,interior",
-  "https://source.unsplash.com/800x600/?villa,luxury",
+  "https://source.unsplash.com/800x600/?coastal,home",
 ];
 
 const stats = [
   { id: 1, value: 20, label: "Years Experience" },
-  { id: 2, value: 50, label: "Homes Delivered" },
   { id: 3, value: 100, label: "Client Satisfaction (%)" },
 ];
 
@@ -46,10 +45,10 @@ export default function Aboutus() {
             {/* <span className="absolute left-0 bottom-0 w-24 h-1 bg-indigo-500 rounded-full"></span> */}
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-            We are dedicated builders committed to creating modern homes
-            that blend comfort, style, and durability. With decades of
-            expertise, we bring your dream home to life with unmatched
-            craftsmanship and attention to detail.
+            We are a Sydney-based design & build partner. We work closely with clients,
+            architects and local trades to deliver practical, energy-efficient homes that
+            suit Australian lifestyles. From Castle Hill to Box Hill and beyond, we focus on
+            considered layouts, responsible materials and clear communication through each project.
           </p>
 
           {/* Stats */}
