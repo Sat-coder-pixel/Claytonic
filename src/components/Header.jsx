@@ -12,6 +12,10 @@ export default function Header() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleContactClick = () => {
+    navigate("/contact"); // navigate to contact page
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
@@ -29,12 +33,7 @@ export default function Header() {
 
   const goToHash = (hash) => {
     if (window.location.pathname === "/") {
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      } else {
-        window.location.hash = hash ? `#${hash}` : "#";
-      }
+      window.location.hash = hash ? `#${hash}` : "#";
       return;
     }
     navigate("/#" + (hash || ""));
@@ -88,8 +87,8 @@ export default function Header() {
         {/* Mobile Contact Button */}
         <div className="md:hidden">
           <button
-            onClick={() => goToHash("contact")}
-            className="bg-amber-500 text-slate-900  px-4 py-2 rounded-lg"
+            onClick={handleContactClick}
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg"
           >
             Contact Us
           </button>
