@@ -52,24 +52,25 @@ export default function Aboutus() {
           </p>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-6">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-xl shadow-lg p-6 text-center hover:scale-105 transition-transform"
-              >
-                <p className="text-3xl font-extrabold text-indigo-600">
-                  {counters[i]}
-                  {stat.id === 3 ? "%" : "+"}
-                </p>
-                <p className="text-gray-500 text-sm">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {stats.map((stat, i) => (
+    <motion.div
+      key={stat.id}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: i * 0.2 }}
+      viewport={{ once: true }}
+      className="bg-white rounded-xl shadow-lg p-6 text-center hover:scale-105 transition-transform break-words"
+    >
+      <p className="text-3xl font-extrabold text-indigo-600">
+        {counters[i]}
+        {stat.id === 3 ? "%" : "+"}
+      </p>
+      <p className="text-gray-500 text-sm">{stat.label}</p>
+    </motion.div>
+  ))}
+</div>
+
         </motion.div>
 
         {/* Auto Scrolling Image Carousel */}
