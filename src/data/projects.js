@@ -1,6 +1,7 @@
 import homeImg from '../assets/homeimage.jpg'
 import s6 from '../assets/s6.png'
 import d3 from '../assets/d3.png'
+import d1 from '../assets/d1.png'
 const projects = [
   {
     id: '1',
@@ -70,6 +71,29 @@ const projects = [
       { year: '2020 Q2', title: 'Construction' },
       { year: '2021 Q1', title: 'Finishes' },
       { year: '2021 Q3', title: 'Client Handover' },
+    ],
+  },
+  {
+    id: '5',
+    title: 'Modern Double-storey Residence',
+    location: 'Strathfield, NSW',
+    img: d1,
+    hero: d1,
+    year: 2022,
+    area: '4200 sqft',
+    cost: 'AUD $1,150,000',
+    desc: 'A sleek modern double-storey residence designed for luxury and comfort, featuring open-plan living spaces and high-end finishes.',
+    features: ['5 Bedrooms', 'Home Theatre', 'Smart Home Automation', 'Dual Garage'],
+    stats: [
+      { label: 'Built Area (sqft)', value: 4200 },
+      { label: 'Bedrooms', value: 5 },
+      { label: 'Completion (Months)', value: 16 },
+    ],
+    timeline: [
+      { year: '2020 Q4', title: 'Architectural Design' },
+      { year: '2021 Q2', title: 'Construction Begins' },
+      { year: '2021 Q4', title: 'Interior Finishing' },
+      { year: '2022 Q2', title: 'Project Completion' },
     ],
   },
 ]
