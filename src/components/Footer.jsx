@@ -113,8 +113,8 @@ const [formData, setFormData] = useState({
           className="space-y-4"
         >
           <h2 className="text-2xl font-bold text-white">Our Office</h2>
-          <p className="text-gray-400">49 Mountain Street, The Ponds, New South Wales 2769, Australia </p>
-          <p><strong>Phone:</strong> +91 9876543210</p>
+          <p className="text-gray-400">P.O. Box 666, Strathfield, NSW 2135, Australia </p>
+          <p><strong>Phone:</strong> 0450-104-451</p>
           <p><strong>Email:</strong> info.claytonic@gmail.com</p>
 
           {/* Social Icons */}

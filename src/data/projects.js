@@ -1,12 +1,13 @@
 import homeImg from '../assets/homeimage.jpg'
-
+import s6 from '../assets/s6.png'
+import d3 from '../assets/d3.png'
 const projects = [
   {
     id: '1',
     title: 'Double-storey Family Home',
     location: 'Castle Hill, NSW',
-    img: homeImg,
-    hero: homeImg,
+    img: d3,
+    hero: d3,
     year: 2023,
     area: '4800 sqft',
     cost: 'AUD $1,200,000',
@@ -52,8 +53,8 @@ const projects = [
     id: '4',
     title: 'Single-storey Cottage',
     location: 'North Kellyville, NSW',
-  img: homeImg,
-  hero: homeImg,
+  img: s6,
+  hero: s6,
     year: 2021,
     area: '1500 sqft',
     cost: 'AUD $780,000',

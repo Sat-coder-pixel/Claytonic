@@ -20,8 +20,18 @@ export default function Hero() {
 
       <div className="relative z-10 flex h-full items-center justify-center px-6">
         <div className="max-w-3xl text-center text-white">
-          <h1 className={`text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'} transition-all duration-700`}>Building Dreams, Creating Homes</h1>
-          <p className={`mt-4 text-lg sm:text-xl text-slate-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-800`}>Trusted builder with modern designs and quality construction.</p>
+           <h1
+    className={`text-4xl sm:text-5xl md:text-5xl font-extrabold leading-snug md:leading-tight tracking-tight 
+      ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'} 
+      transition-all duration-700`}
+  >
+    We’re in beta! <br className="hidden sm:block" />
+    You’re getting an early look <br className="hidden sm:block" />
+    while we polish things up — <br className="hidden md:block" />
+    <span className="text-amber-400">thanks for your patience.</span>
+  </h1>
+
+          {/* <p className={`mt-4 text-lg sm:text-xl text-slate-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-800`}>Trusted builder with modern designs and quality construction.</p> */}
 
           <div className={`mt-8 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-900`}>
             <a href="#portfolio" className="inline-block bg-amber-500 text-slate-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:scale-105 transform transition">Explore Projects</a>

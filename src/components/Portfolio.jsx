@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'   // ❌ commented out (no navigation)
 import projects from '../data/projects'
 
 export default function Portfolio() {
   const [showAll, setShowAll] = useState(false);
-
   const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
@@ -25,13 +24,14 @@ export default function Portfolio() {
 
         {/* Projects Grid */}
         <motion.div 
-          layout   // 👈 enables smooth layout animations
+          layout
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
         >
           <AnimatePresence>
             {visibleProjects.map((project, idx) => (
-              <Link to={`/projects/${project.id}`} key={project.id} aria-label={`Open ${project.title} details`}>
+              // <Link to={`/projects/${project.id}`} key={project.id} aria-label={`Open ${project.title} details`}>
                 <motion.div
+                  key={project.id}
                   layout
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -39,25 +39,25 @@ export default function Portfolio() {
                   transition={{ duration: 0.6, delay: idx * 0.08 }}
                   whileHover={{ scale: 1.03, y: -6 }}
                   whileTap={{ scale: 0.98 }}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer transform transition-all duration-300"
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300"
                 >
                   <div className="overflow-hidden">
-                      <motion.img
-                        src={project.img}
-                        alt={project.title}
-                        loading="lazy"
-                        className="w-full h-56 object-cover will-change-transform"
-                        whileHover={{ scale: 1.08 }}
-                        transition={{ duration: 0.45 }}
-                      />
-                    </div>
+                    <motion.img
+                      src={project.img}
+                      alt={project.title}
+                      loading="lazy"
+                      className="w-full h-56 object-cover will-change-transform"
+                      whileHover={{ scale: 1.08 }}
+                      transition={{ duration: 0.45 }}
+                    />
+                  </div>
                   <div className="p-6 text-left">
                     <h3 className="text-xl font-semibold">{project.title}</h3>
                     <p className="text-sm text-blue-500">{project.location}</p>
                     <p className="mt-3 text-gray-600">{project.desc}</p>
                   </div>
                 </motion.div>
-              </Link>
+              // </Link>
             ))}
           </AnimatePresence>
         </motion.div>
@@ -69,7 +69,7 @@ export default function Portfolio() {
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
           className="mt-16"
-          layout   // 👈 button also smoothly moves up/down
+          layout
         >
           <motion.button
             whileHover={{ scale: 1.05 }}

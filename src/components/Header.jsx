@@ -88,7 +88,7 @@ export default function Header() {
         <div className="md:hidden">
           <button
             onClick={handleContactClick}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+            className="bg-amber-500 text-slate-900 px-4 py-2 rounded-lg"
           >
             Contact Us
           </button>

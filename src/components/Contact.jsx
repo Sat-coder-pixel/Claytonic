@@ -68,11 +68,12 @@ export default function Contact() {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <h2 className="text-3xl font-bold text-gray-900">Our Office</h2>
-          <p className="text-gray-700">123 Builder Street, New Delhi, India</p>
-          <p className="text-gray-700">
-            <strong>Phone:</strong> +91 9876543210
-          </p>
+         <h2 className="text-3xl font-bold text-gray-900">Our Office</h2>
+<p className="text-gray-700">P.O. Box 666, Strathfield, NSW 2135, Australia</p>
+<p className="text-gray-700">
+  <strong>Phone:</strong> 0450-104-451
+</p>
+
           <p className="text-gray-700">
             <strong>Email:</strong> info@builder.com
           </p>

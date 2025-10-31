@@ -1,12 +1,18 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import HomeImage from "../assets/homeimage.jpg";
+
+import s1 from "../assets/s1.png";
+import s2 from "../assets/d4.jpeg";
+import s3 from "../assets/s5.png";
+import s4 from "../assets/s4.jpeg";
+
 // Example image list (replace with real project images)
 const images = [
-  "https://source.unsplash.com/800x600/?house,modern",
-  "https://source.unsplash.com/800x600/?construction,building",
-  "https://source.unsplash.com/800x600/?architecture,interior",
-  "https://source.unsplash.com/800x600/?coastal,home",
+  s1,
+  s2,
+  s3,
+  s4
 ];
 
 const stats = [
@@ -95,7 +101,7 @@ export default function Aboutus() {
             {[...images, ...images].map((img, idx) => (
               <img
                 key={idx}
-                src={HomeImage}
+                src={img}
                 alt="showcase"
                 loading="lazy"
                 className="w-[400px] h-full object-cover rounded-lg mx-2 will-change-transform"
